@@ -4,10 +4,13 @@
       <li class="media">
         <div class="media-body">
           <div>
+            <% if user.icon? %>
+            <img src=<%= user.icon %> class = "post_icon_image" >
+            <% end %>
             <%= user.name %>
           </div>
           <div>
-            <p><%= link_to 'View profile', user_path(user) %></p>
+            <p><%= link_to '詳細ページへ', user_path(user) %></p>
           </div>
         </div>
       </li>

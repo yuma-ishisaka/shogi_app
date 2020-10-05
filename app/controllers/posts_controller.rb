@@ -3,10 +3,11 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def create
-    @micropost = current_user.posts.build(post_params)
+  
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'メッセージを投稿しました。'
-      redirect_to root_url
+      redirect_to  controller: :categories, action: :show, id: @post.category_id
     else
       @posts = current_user.posts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
@@ -15,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-     @opost.destroy
+     @post.destroy
     flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
   end
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:opost).permit(:content)
+    params.require(:post).permit(:content, :category_id)
   end
   
   def correct_user

@@ -1,13 +1,28 @@
 <div class="text-center">
-  <h1>登録</h1>
+  <h1>プロフィールの編集</h1>
 </div>
+ <div class="row">
+   <div class="col-sm-6 offset-sm-3">
+     <div class="icon">
+      <% if @user.icon? %>
+      <img src=<%= @user.icon %> class = "icon_image" >
+      <% end %>
+     </div>
+   
+   </div>
+  </div> 
 
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
 
     <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-      
+   
+    <div class="icon_button">
+    <button type="button" class="btn btn-outline-secondary rounded-pill">
+      <%= f.file_field :icon %>
+    </button>
+    </div>
+    
       <div class="form-group">
         <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -27,6 +42,11 @@
         <%= f.label :kiryoku, '棋力' %>
         <%= f.text_field :kiryoku, class: 'form-control' %>
       </div>
+      
+       <div class="form-group">
+        <%= f.label :profile, '自己紹介' %>
+        <%= f.text_field :profile, class: 'form-control' %>
+      </div>
 
       <div class="form-group">
         <%= f.label :password, 'パスワード' %>
@@ -38,7 +58,7 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '更新', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<ul class="list-unstyled">
+  <% @categories.each do |category| %>
+  <li><%= link_to category.content, category %></li>
+    <% end %>
+</ul>

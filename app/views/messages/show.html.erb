@@ -1,0 +1,25 @@
+<div class="send_message">
+  <h2>メッセージ一覧</h2>
+  <%= render 'messages/form', message: @message %>
+  
+  <p><%= link_to "マイページ", user_path(current_user) %>　<%= link_to "戦型一覧", categories_path %></p>
+</div>  
+    <% user = User.find_by(id: @message.receive_id) %>
+    <% @messages.each do |message| %>
+      <div class="media-body">
+    
+        <div>
+          <% if message.user.icon? %>
+            <img src=<%= message.user.icon %> class = "post_icon_image" >
+          <% end %>
+          <%= link_to message.user.name, user_path(message.user) %> <span class="text-muted"> <%= message.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+        </div>
+        <div>
+          <%= message.content %><br>
+        </div>
+      </div>
+    <hr>
+    <% end %>
+
+
+
