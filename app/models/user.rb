@@ -5,7 +5,7 @@ class User < ApplicationRecord
     validates :kiryoku, presence: true, length: {maximum: 255}
     validates :battle_app, presence: true, length: {maximum: 255}
     validates :profile, length: {maximum: 255}
-    validates :icon, presence: true
+    
     has_secure_password
     
     has_many :posts
