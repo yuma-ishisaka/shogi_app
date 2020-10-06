@@ -1,5 +1,36 @@
-<ul class="list-unstyled">
+<h2>相居飛車</h2>
+<div class="row">
   <% @categories.each do |category| %>
-  <li><%= link_to category.content, category %></li>
+    <% if category.id <= 5 %>
+      <p>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+      </p>
     <% end %>
-</ul>
+  <% end %>
+</div>
+
+<br>
+
+<h2>対抗系</h2>
+<div class="row">
+  <% @categories.each do |category| %>
+    <% if category.id >= 6 && category.id <=10 %>
+      <p>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<h2>相振り飛車・その他</h2>
+<div class="row">
+  <% @categories.each do |category| %>
+    <% if category.id >= 11 %>
+      <p>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+      </p>
+    <% end %>
+  <% end %>
+</div>  

@@ -1,11 +1,10 @@
-<h1><%= @category.content %>で戦いたい人の集まり</h1>
+<h1><%= @category.content %>部屋</h1>
 
  <div class="row">
     <aside class="col-sm-4">
       <%= form_with(model: @post, local: true) do |f| %>
         <div class="form-group">
-           
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.text_area :content, class: 'form-control', rows: 5, :placeholder => "例: こちらが振り飛車側でお願いします。初段前後の方だとありがたいです。" %>
           <%= f.hidden_field :category_id, value: @category.id %>
         </div>
         <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>

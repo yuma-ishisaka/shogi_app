@@ -7,7 +7,9 @@
       
       <div class="icon">
       <% if @user.icon? %>
-      <img src=<%= @user.icon %> class = "icon_image" >
+        <img src=<%= @user.icon %> class = "icon_image" >
+      <% else %>
+        <%= image_tag "icon.png", class: "icon_image" %>
       <% end %>
       </div>
       <div class="card-body">
@@ -32,7 +34,7 @@
       <% if current_user == @user %>
       <li class="nav-item"><a href="<%= messages_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(messages_user_path(@user)) %>">受信メッセージ  <span class="badge badge-secondary"></span></a></li>
       <% else %>
-      <li class="nav-item"><a href="<%= user_message_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_message_path(@user)) %>">メッセージを送る  <span class="badge badge-secondary"></span></a></li>
+      <li class="nav-item"><a href="<%= user_message_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_message_path(@user)) %>"><i class="fas fa-envelope"></i>  <span class="badge badge-secondary"></span></a></li>
       <% end %>
     </ul>
     <%= render 'users', users: @followings %>

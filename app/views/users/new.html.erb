@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1>登録</h1>
+  <h1>新規登録</h1>
 </div>
 
 <div class="row">
@@ -20,12 +20,12 @@
       
       <div class="form-group">
         <%= f.label :battle_app, '主な対戦アプリ' %>
-        <%= f.text_field :battle_app, class: 'form-control' %>
+        <%= f.text_field :battle_app, class: 'form-control', :placeholder => "例: 将棋ウォーズ,将棋倶楽部24,将棋クエスト等" %>
       </div>
       
       <div class="form-group">
         <%= f.label :kiryoku, '棋力' %>
-        <%= f.text_field :kiryoku, class: 'form-control' %>
+        <%= f.text_field :kiryoku, class: 'form-control', :placeholder => "例: 2級,4段" %>
       </div>
 
       <div class="form-group">
@@ -38,7 +38,7 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
 
-      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>

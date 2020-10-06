@@ -5,7 +5,9 @@
         <div class="media-body">
           <div>
             <% if user.icon? %>
-            <img src=<%= user.icon %> class = "post_icon_image" >
+              <img src=<%= user.icon %> class = "post_icon_image" >
+            <% else %>
+              <%= image_tag "icon.png", class: "post_icon_image" %>
             <% end %>
             <%= user.name %>
           </div>

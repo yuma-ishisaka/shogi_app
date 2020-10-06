@@ -1,10 +1,20 @@
 <% if logged_in? %>
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
 <% else %>
-  <div class="center jumbotron">
+
     <div class="text-center">
-      <h1>ようこそ</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= image_tag 'top.jpg', :size => '700x400' %>
+      <div class="top-title">
+      <h1>指定戦型で対局</h1>
+        <h1>Shogi Strategy Designation</h1>
+      </div>
+      
+      <h3>Shogi Strategy Designation(SSD)はネット将棋で戦型指定が行えるサービスです。<br>
+          SSDでは指したい戦型で対戦相手とマッチングすることができます。</h3>
+      <br>
+      
+      <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-secondary' %>
     </div>
-  </div>
+
 <% end %>
