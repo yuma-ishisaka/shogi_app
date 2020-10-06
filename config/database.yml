@@ -24,6 +24,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: message-board_production
-  username: message-board
+  database: shogi_app_production
+  username: shogi_app
   password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
