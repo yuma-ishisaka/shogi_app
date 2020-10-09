@@ -6,12 +6,12 @@ class PostsController < ApplicationController
   
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = '投稿しました。'
       redirect_to  controller: :categories, action: :show, id: @post.category_id
     else
       @posts = current_user.posts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      flash[:danger] = '投稿に失敗しました。'
+      redirect_back(fallback_location: root_path)
     end
   end
 

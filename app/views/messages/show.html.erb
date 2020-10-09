@@ -2,7 +2,7 @@
   <h2>メッセージ</h2>
   <%= render 'messages/form', message: @message %>
   
-  <p><%= link_to "マイページ", user_path(current_user) %>　<%= link_to "戦型一覧", categories_path %></p>
+
 </div>  
     <% user = User.find_by(id: @message.receive_id) %>
     <% @messages.each do |message| %>
@@ -21,6 +21,7 @@
         </div>
       </div>
     <hr>
+    <%= paginate message %>
     <% end %>
 
 
