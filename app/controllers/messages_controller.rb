@@ -6,7 +6,7 @@ def show
 @user = User.find(params[:user_id])
 send_ids = current_user.messages.where(receive_id: @user.id).pluck(:id)
 receive_ids = @user.messages.where(receive_id: current_user.id).pluck(:id)
-@messages = Message.where(id: send_ids + receive_ids).order(created_at: :desc)
+@messages = Message.where(id: send_ids + receive_ids).order(created_at: :desc).page(params[:page])
 @message = Message.new
 end
 

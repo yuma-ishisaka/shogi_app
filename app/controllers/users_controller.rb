@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   
   def messages
    @user = User.find(params[:id])
-   @messages = Message.where(receive_id: current_user.id).order(created_at: :desc)
+   @messages = Message.where(receive_id: current_user.id).order(created_at: :desc).page(params[:page])
    @send_id = []
    @result = []
    @messages.each do |message|
@@ -77,4 +77,3 @@ class UsersController < ApplicationController
   end
   
 end
-
