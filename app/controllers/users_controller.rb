@@ -61,7 +61,7 @@ class UsersController < ApplicationController
    @result = []
    @messages.each do |message|
      @send_id << message
-     @result = @send_id.uniq{|m| m[:user_id]}.page(params[:page])
+     @result = @send_id.uniq{|m| m[:user_id]}
    end
    counts(@user)
   end
