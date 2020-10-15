@@ -5,9 +5,9 @@
         <div class="media-body">
           <div>
             <% if user.icon? %>
-              <img src=<%= user.icon %> class = "post_icon_image" >
+              <img src=<%= user.icon %> class = "post_icon_image" alt="icon" >
             <% else %>
-              <%= image_tag "icon.png", class: "post_icon_image" %>
+              <%= image_tag "icon.png", class: "post_icon_image", alt: "icon" %>
             <% end %>
             <%= user.name %>
           </div>
@@ -16,12 +16,12 @@
             <% unless current_user == user %>
   <% if current_user.following?(user) %>
     <%= form_with(model: current_user.relationships.find_by(follow_id: user.id), local: true, method: :delete) do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
+      <%= hidden_field_tag :follow_id, user.id, {id: user.id} %>
       <%= f.submit 'フォローを外す', class: 'btn btn-danger' %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.relationships.build, local: true) do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
+      <%= hidden_field_tag :follow_id, user.id,{id: user.id} %>
       <%= f.submit 'フォロー', class: 'btn btn-primary' %>
     <% end %>
   <% end %>

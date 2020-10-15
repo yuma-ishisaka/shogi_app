@@ -3,7 +3,7 @@
   <% @categories.each do |category| %>
     <% if category.id <= 5 %>
       <p>
-        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img", alt: "#{category.content}"), category %>
       </p>
     <% end %>
   <% end %>
@@ -16,7 +16,7 @@
   <% @categories.each do |category| %>
     <% if category.id >= 6 && category.id <=10 %>
       <p>
-        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img",  alt: "#{category.content}"), category %>
       </p>
     <% end %>
   <% end %>
@@ -29,7 +29,7 @@
   <% @categories.each do |category| %>
     <% if category.id >= 11 %>
       <p>
-        <%= link_to image_tag("#{category.id}.png", class: "category_img"), category %>
+        <%= link_to image_tag("#{category.id}.png", class: "category_img",  alt: "#{category.content}"), category %>
       </p>
     <% end %>
   <% end %>

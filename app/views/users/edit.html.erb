@@ -5,7 +5,9 @@
    <div class="col-sm-6 offset-sm-3">
      <div class="icon">
       <% if @user.icon? %>
-      <img src=<%= @user.icon %> class = "icon_image" >
+        <img src=<%= @user.icon %> class = "icon_image" alt ="icon" >
+      <% else %>
+        <%= image_tag "icon.png", class: "icon_image", alt: "icon" %>
       <% end %>
      </div>
    
@@ -19,9 +21,7 @@
     <%= render 'layouts/error_messages', model: f.object %>
    
     <div class="icon_button">
-    <button type="button" class="btn btn-outline-secondary rounded-pill">
       <%= f.file_field :icon %>
-    </button>
     </div>
     
       <div class="form-group">
