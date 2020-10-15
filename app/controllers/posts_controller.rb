@@ -11,8 +11,7 @@ class PostsController < ApplicationController
     else
       @category = Category.find(@post.category_id)
       @posts = current_user.posts.order(id: :desc).page(params[:page])
-      flash[:danger] = '投稿に失敗しました。'
-      flash[:warning] = @post.errors.full_messages
+      flash.now[:danger] = '投稿に失敗しました。'
       render 'categories/show'
     end
   end

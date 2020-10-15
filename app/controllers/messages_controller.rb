@@ -21,8 +21,7 @@
       flash[:success] = 'メッセージを送信しました。'
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = 'メッセージを送信できませんでした。'
-      flash[:warning] = @message.errors.full_messages
+      flash.now[:danger] = 'メッセージを送信できませんでした。'
       render :show
     end
   end
