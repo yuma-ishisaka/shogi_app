@@ -16,8 +16,8 @@
           <% end %>
           <%= link_to message.user.name, user_path(message.user) %> <span class="text-muted"> <%= message.created_at.strftime("%Y-%m-%d %H:%M") %></span>
         </div>
-        <div>
-          <%= message.content %><br>
+        <div class="message-content">
+          <%= safe_join(message.content.split("\n"),tag(:br)) %><br>
         </div>
       </div>
     <hr>

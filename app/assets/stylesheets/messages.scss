@@ -3,3 +3,9 @@
 .send_message {
     text-align: center;
 }
+
+.message-content {
+  width: 1000px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

@@ -15,7 +15,7 @@
           <%= post.user.battle_app %> <%= post.user.kiryoku %>
         </div>
         <div>
-          <p class="mb-0"><%= post.content %></p>
+          <p class="mb-0 post-content"><%= safe_join(post.content.split("\n"),tag(:br)) %></p>
         </div>
         <div>
           <% if current_user == post.user %>
