@@ -3,21 +3,23 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def create
-  
     @post = current_user.posts.build(post_params)
+    
     if @post.save
       flash[:success] = '投稿しました。'
       redirect_to  controller: :categories, action: :show, id: @post.category_id
     else
+      @category = Category.find(@post.category_id)
       @posts = current_user.posts.order(id: :desc).page(params[:page])
       flash[:danger] = '投稿に失敗しました。'
-      redirect_back(fallback_location: root_path)
+      flash[:warning] = @post.errors.full_messages
+      render 'categories/show'
     end
   end
 
   def destroy
      @post.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = '投稿を削除しました。'
     redirect_back(fallback_location: root_path)
   end
 

@@ -4,7 +4,7 @@ class User < ApplicationRecord
     validates :email, presence: true, length: {maximum: 100}
     validates :kiryoku, presence: true, length: {maximum: 20}
     validates :battle_app, presence: true, length: {maximum: 20}
-    validates :profile, length: {maximum: 255}
+    validates :profile, presence: true, length: {maximum: 255}
     
     has_secure_password
     

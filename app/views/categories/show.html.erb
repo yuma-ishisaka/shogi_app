@@ -4,7 +4,7 @@
     <aside class="col-sm-4">
       <%= form_with(model: @post, local: true) do |f| %>
         <div class="form-group">
-          <%= f.text_area :content, class: 'form-control', rows: 5, :placeholder => "255字以内　例: こちらが振り飛車側でお願いします。初段前後の方だとありがたいです。" %>
+          <%= f.text_area :content, class: 'form-control', rows: 5, :placeholder => "例: こちらが振り飛車側でお願いします。初段前後の方だとありがたいです。" %>
           <%= f.hidden_field :category_id, value: @category.id %>
         </div>
         <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>

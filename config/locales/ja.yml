@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        emai: Email
+        kiryoku: 棋力
+        battle_app: 対戦アプリ
+        password: パスワード
+        password_confirmation: 再確認用パスワード
+        profile: プロフィール
+        icon: アイコン
+      message:
+        content: メッセージ
+      post:
+        content: 投稿内容
